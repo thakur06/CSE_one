@@ -1,0 +1,86 @@
+class cq {
+    int front ;
+    int rear;
+    int size;
+    int [] a;
+    cq (int s){
+        this.size=s;
+        a=new int [size];
+        front =-1;
+        rear  =1;
+        
+    }
+    
+    void deque (){
+        if (front == -1 && rear ==-1){
+            System.out.print("array is full");
+            return ;
+            
+        }
+        else if ( front == rear){
+            front =-1;
+            rear=-1;
+            
+        }
+        else {
+            ++ front ;
+            
+        }
+    }
+        void insert(int ele ){
+        if ((front ==0 && rear ==size-1) || (rear==(front-1)%(size-1))){
+            System.out.println("array is full");
+            return ;
+            
+        }
+         if (front ==-1 ){
+            front =0;
+            rear=0;
+            
+            
+        }
+        else if (front !=0  && rear==size-1){
+            rear=0;
+            
+            
+        }
+        else {
+            rear++;
+            
+        }
+        a[rear]=ele;
+    }
+   
+   void print() {
+    if (rear >= front ){
+        for (int i=front  ; i<size ; ++i  ){
+            System.out.println(a[i]+" ");
+        }
+    }
+    else {
+        for (int i=front ; i< size ; ++ i){
+            System.out.print(a[i]+ " ");
+            
+        }
+        for (int i=0; i<=rear ; ++i){
+            System.out.print(a[i]+ " ");
+        }
+    }
+   }
+
+}
+public class MyClass {
+    public static void main(String args[]) {
+      cq q =new cq (3);
+    q.insert(8);
+     q.insert(2);
+     q.insert(9);
+     q.deque();
+     q.insert(5);
+     q.deque();
+     q.insert(21);
+     q.deque();
+     q.print();
+     
+    }
+}
